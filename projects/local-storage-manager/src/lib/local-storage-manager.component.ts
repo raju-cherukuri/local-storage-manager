@@ -49,5 +49,6 @@ export class LocalStorageManagerComponent implements OnInit {
   get f() { return this.form.controls; }
 
   onSubmit() {
+    console.log(this.f["username"].value)
   }
 }
