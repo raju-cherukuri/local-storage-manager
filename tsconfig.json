@@ -9,6 +9,18 @@
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
+    "paths": {
+      "crypto": [
+        "node_modules/crypto-browserify",
+        "node_modules/crypto-js"
+      ],
+      "stream": [
+        "node_modules/stream-browserify"
+      ],
+      "local-storage-manager": [
+        "dist/local-storage-manager"
+      ]
+    },
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
