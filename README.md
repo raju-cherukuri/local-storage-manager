@@ -1,4 +1,4 @@
-# local-storage-manager
+# ngx-local-storage-manager
 
 The library is designed to provide a convenient and Angular-friendly way to manage local storage in Angular applications. It simplifies the process of storing, retrieving, and managing data in the browser's local storage.
 
@@ -10,7 +10,7 @@ The library is designed to provide a convenient and Angular-friendly way to mana
 ### 1. Install
 
 ```
-npm install local-storage-manager --save
+npm i ngx-local-storage-manager --save
 npm install crypto-js
 npm i ngx-toastr
 

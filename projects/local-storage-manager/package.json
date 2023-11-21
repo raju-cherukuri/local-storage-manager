@@ -1,12 +1,12 @@
 {
-  "name": "local-storage-manager",
-  "version": "0.0.1",
+  "name": "ngx-local-storage-manager",
+  "version": "0.0.3",
   "description": "The library is designed to provide a convenient and Angular-friendly way to manage local storage in Angular applications. It simplifies the process of storing, retrieving, and managing data in the browser's local storage.",
 
   "author": {"name": "Bangar Raju Cherukuri", "email": "cbraju@hotmail.com", "url": "https://github.com/raju-cherukuri"},
   "repository": {"type": "git", "url": "https://github.com/raju-cherukuri/local-storage-manager"},
   "homepage": "https://github.com/raju-cherukuri/local-storage-manager",
-  "keywords": ["language translation", "angular", "angularv16"],
+  "keywords": ["localStorage", "angular", "angularv17"],
   "license":"MIT",
   "scripts": {
     "start:proxy": "--proxy-config src/proxy.conf.json",
