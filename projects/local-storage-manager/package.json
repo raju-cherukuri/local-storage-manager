@@ -1,6 +1,6 @@
 {
   "name": "ngx-local-storage-manager",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "The library is designed to provide a convenient and Angular-friendly way to manage local storage in Angular applications. It simplifies the process of storing, retrieving, and managing data in the browser's local storage.",
 
   "author": {"name": "Bangar Raju Cherukuri", "email": "cbraju@hotmail.com", "url": "https://github.com/raju-cherukuri"},

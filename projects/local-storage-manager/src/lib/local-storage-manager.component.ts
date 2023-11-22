@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, inject, Inject, OnInit} from '@angular/core';
 import {LocalStorageManagerService} from "./local-storage-manager.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
@@ -35,15 +35,15 @@ export class LocalStorageManagerComponent implements OnInit {
   form!: FormGroup;
   user: any = {};
 
-  private readonly formBuilder = Inject(FormBuilder);
-  private readonly storageService = Inject(LocalStorageManagerService);
+  private readonly formBuilder = inject(FormBuilder);
+  private readonly storageService = inject(LocalStorageManagerService);
 
   ngOnInit() {
     this.form = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
-    this.user = this.storageService.getUser();
+    this.user = this.storageService.getItem('item', 'localStorage');
   }
 
   get f() { return this.form.controls; }

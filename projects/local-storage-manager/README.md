@@ -42,12 +42,12 @@ export class AppComponent implements OnInit {
     private readonly storageService: LocalStorageManagerService) {
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.form = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
-    this.user = this.storageService.getUser();
+    this.getUser();
     if(this.user.username === undefined){
       this.toastr.warning("It seems local storage data has changed or is deleted")
     }
@@ -55,11 +55,20 @@ export class AppComponent implements OnInit {
 
   get f() { return this.form.controls; }
 
+  getUser(){
+    this.user = this.storageService.getItem('item', 'sessionStorage');
+  }
   onSubmit() {
     let credentials = {username: this.f["username"].value}
-    this.storageService.saveUser(credentials);
+    console.log(credentials)
+    this.storageService.saveItem(credentials, 'item', 'sessionStorage');
     this.toastr.success("Record Saved successfully")
-    this.user = this.storageService.getUser();
+    this.getUser();
+  }
+
+  deleteItem() {
+    this.storageService.deleteAll('sessionStorage');
+    this.getUser();
   }
 
   showSuccess(message?: string) {
@@ -79,7 +88,7 @@ export class AppComponent implements OnInit {
 ### 2、Template
 
 ```html
- <div class="container">
+<div class="container">
   <div class="login-form">
     <div class="card">
       <h2 class="card-header">Login</h2>
@@ -95,11 +104,15 @@ export class AppComponent implements OnInit {
           </div>
           <div>
             <button class="btn btn-primary">
-              <span class="spinner-border spinner-border-sm me-1"></span>
+              <span class=" me-1"></span>
               Login
             </button>
           </div>
         </form>
+        <button class="btn btn-danger" (click)="deleteItem()">
+          <span class="me-1"></span>
+          Delete User
+        </button>
       </div>
     </div>
   </div>
@@ -109,6 +122,14 @@ export class AppComponent implements OnInit {
   </div>
 </div>
 ```
+
+### All Methods from LocalStorageManagerService
+1. saveItem(user: any, key: string, storageType: string)
+2. deleteItem(key: string, storageType: string)
+3. deleteAll(storageType: string)
+4. getItem(key: string, storageType: string)
+
+   
 
 ## Troubleshooting
 
