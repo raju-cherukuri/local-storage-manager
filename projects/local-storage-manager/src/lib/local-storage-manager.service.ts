@@ -1,4 +1,4 @@
-import {Injectable, signal} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {environment} from "../environments/environment";
 import * as CryptoJS from "crypto-js";
 
@@ -13,12 +13,12 @@ export class LocalStorageManagerService {
     window.sessionStorage.clear();
   }
 
-  public saveUser(user: any): void {
+  public saveItem(user: any): void {
     window.sessionStorage.removeItem(USER_KEY);
     this.encryptPayload(user);
   }
 
-  public getUser(): any {
+  public getItem(): any {
     // @ts-ignore
     const user = this.decryptPayload(window.sessionStorage.getItem(USER_KEY));
     if (user) {
