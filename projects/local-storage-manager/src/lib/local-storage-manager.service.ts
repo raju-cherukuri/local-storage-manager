@@ -8,17 +8,28 @@ const encryptSecretKey = environment.secretKey;
   providedIn: 'root'
 })
 export class LocalStorageManagerService {
-  public saveItem(user: any, key: string, storageType: string): void {
+  /***
+   * In this method we can save the item on either local Storage or session Storage
+   * @param item
+   * @param key
+   * @param storageType
+   */
+  public saveItem(item: any, key: string, storageType: string): void {
     if (storageType === 'localStorage') {
       window.localStorage.removeItem(key);
       this.deleteItem(key, storageType);
-      this.encryptPayload(user, key, storageType);
+      this.encryptPayload(item, key, storageType);
     } else if (storageType === 'sessionStorage')  {
       this.deleteItem(key, storageType);
-      this.encryptPayload(user, key, storageType);
+      this.encryptPayload(item, key, storageType);
     }
   }
 
+  /***
+   * You can delete an item using its key either on local storage or session storage.
+   * @param key
+   * @param storageType
+   */
   public deleteItem(key: string, storageType: string): void {
     if (storageType === 'localStorage') {
       window.localStorage.removeItem(key);
@@ -27,6 +38,10 @@ export class LocalStorageManagerService {
     }
   }
 
+  /***
+   * In this method, you can delete all items either on local storage or session storage.
+   * @param storageType
+   */
   public deleteAll(storageType: string): void {
     if (storageType === 'localStorage') {
       window.localStorage.clear();
@@ -35,6 +50,11 @@ export class LocalStorageManagerService {
     }
   }
 
+  /***
+   * In this method, you can get an item using its key either from local storage or session storage.
+   * @param key
+   * @param storageType
+   */
   public getItem(key: string, storageType: string): any {
     let user;
     if (storageType === 'localStorage') {

@@ -58,17 +58,20 @@ export class AppComponent implements OnInit {
 
   get f() { return this.form.controls; }
 
+  //In this method, you can get an item using its key either from local storage or session storage.
   getUser(){
     this.user = this.storageService.getItem('item', 'sessionStorage');
   }
   onSubmit() {
     let credentials = {username: this.f["username"].value}
     console.log(credentials)
+    //In this method we can save the item on either local Storage or session Storage
     this.storageService.saveItem(credentials, 'item', 'sessionStorage');
     this.toastr.success("Record Saved successfully")
     this.getUser();
   }
 
+  //In this method, you can delete all items either on local storage or session storage.
   deleteItem() {
     this.storageService.deleteAll('sessionStorage');
     this.getUser();
@@ -127,7 +130,7 @@ export class AppComponent implements OnInit {
 ```
 
 ### All Methods from LocalStorageManagerService
-1. saveItem(user: any, key: string, storageType: string)
+1. saveItem(payload: any, key: string, storageType: string)
 2. deleteItem(key: string, storageType: string)
 3. deleteAll(storageType: string)
 4. getItem(key: string, storageType: string)
