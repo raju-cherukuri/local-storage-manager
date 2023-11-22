@@ -1,6 +1,9 @@
 # ngx-local-storage-manager
 
-The library is designed to provide a convenient and Angular-friendly way to manage local storage in Angular applications. It simplifies the process of storing, retrieving, and managing data in the browser's local storage.
+The library is designed to provide a convenient and Angular-friendly way to manage local storage in Angular applications.
+It simplifies the process of storing, retrieving, and managing data in the browser's local storage.
+
+#### NOTE:  You can store data on both local Storage and session Storage on your browser.
 
 ![Static Badge](https://img.shields.io/badge/build-passing-brightgreen)
 ![GitHub Repo stars](https://img.shields.io/github/stars/raju/ngx-multilingual)
@@ -129,7 +132,7 @@ export class AppComponent implements OnInit {
 3. deleteAll(storageType: string)
 4. getItem(key: string, storageType: string)
 
-   
+
 
 ## Troubleshooting
 
